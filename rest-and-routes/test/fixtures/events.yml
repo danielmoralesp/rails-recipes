@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  capacity: 1
+  price: 9.99
+  starts_at: 2017-10-28 13:27:06
+
+two:
+  name: MyString
+  description: MyText
+  capacity: 1
+  price: 9.99
+  starts_at: 2017-10-28 13:27:06
