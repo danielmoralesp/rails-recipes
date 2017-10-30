@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    sort_by = (params[:order] == 'starts_at' ? 'starts_at desc' : 'name')
+    @events = Event.find(:all, :order => sort_by)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -63,6 +64,14 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    @events = Event.search(params[:q])
+
+    respond_to do |format|
+      format.html # search.html.erb format.xml { render :xml => @events }
     end
   end
 
