@@ -13,3 +13,38 @@
     alert('Hello from a custom function.');
   }
 </script>
+
+
+<!-- Tercera llamada -->
+<p><a href="#" onclick="serverSideAlert( );">Call server-side function</a></p>
+
+<script type="text/javascript">
+  function serverSideAlert( ) {
+    var request = new XMLHttpRequest( );
+    request.open('get', '/chapter2/myresponse', false);
+    request.send(null);
+
+    alert(request.responseText);
+  }
+</script>
+
+
+<!-- Cuarta llamada -->
+<p><a href="#" onclick="asyncAlert( )">Call async server-side</a></p>
+<script type="text/javascript">
+  function asyncAlert( ){
+    function getRequestObject( ){
+        try { return new XMLHttpRequest( ) } catch (e) {}
+        try { return new ActiveXObject("Msxml2.XMLHTTP") } catch (e) {} 
+        try { return new ActiveXObject("Microsoft.XMLHTTP") } catch (e) {}
+        return false
+      }
+
+  var request = getRequestObject( );
+    request.open('get', '/chapter2/myresponse');
+    request.onreadystatechange = function( ) {
+      if(request.readyState==4) alert(request.responseText);
+    }
+    request.send(  );
+  }
+</script>
