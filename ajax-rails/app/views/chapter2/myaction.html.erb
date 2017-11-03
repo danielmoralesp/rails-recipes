@@ -1,2 +1,15 @@
 <h1>Chapter2#myaction</h1>
 <p>Find me in app/views/chapter2/myaction.html.erb</p>
+
+<!-- Primera llamada -->
+<p><a href="#" onclick="alert('Hello !');">Inline alert( )</a></p>
+
+
+<!-- Segunda llamada -->
+<p><a href="#" onclick="customAlert( );">Call custom function</a></p>
+
+<script type="text/javascript">
+  function customAlert( ) {
+    alert('Hello from a custom function.');
+  }
+</script>
