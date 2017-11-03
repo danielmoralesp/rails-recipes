@@ -1,22 +1,22 @@
-<h1>Chapter2#myaction</h1>
+<!-- <h1>Chapter2#myaction</h1>
 <p>Find me in app/views/chapter2/myaction.html.erb</p>
 
 <!-- Primera llamada -->
-<p><a href="#" onclick="alert('Hello !');">Inline alert( )</a></p>
+<!-- <p><a href="#" onclick="alert('Hello !');">Inline alert( )</a></p> -->
 
 
 <!-- Segunda llamada -->
-<p><a href="#" onclick="customAlert( );">Call custom function</a></p>
+<!-- <p><a href="#" onclick="customAlert( );">Call custom function</a></p>
 
 <script type="text/javascript">
   function customAlert( ) {
     alert('Hello from a custom function.');
   }
-</script>
+</script> -->
 
 
 <!-- Tercera llamada -->
-<p><a href="#" onclick="serverSideAlert( );">Call server-side function</a></p>
+<!-- <p><a href="#" onclick="serverSideAlert( );">Call server-side function</a></p>
 
 <script type="text/javascript">
   function serverSideAlert( ) {
@@ -26,16 +26,16 @@
 
     alert(request.responseText);
   }
-</script>
+</script> -->
 
 
 <!-- Cuarta llamada -->
-<p><a href="#" onclick="asyncAlert( )">Call async server-side</a></p>
+<!-- <p><a href="#" onclick="asyncAlert( )">Call async server-side</a></p>
 <script type="text/javascript">
   function asyncAlert( ){
     function getRequestObject( ){
         try { return new XMLHttpRequest( ) } catch (e) {}
-        try { return new ActiveXObject("Msxml2.XMLHTTP") } catch (e) {} 
+        try { return new ActiveXObject("Msxml2.XMLHTTP") } catch (e) {}
         try { return new ActiveXObject("Microsoft.XMLHTTP") } catch (e) {}
         return false
       }
@@ -46,5 +46,17 @@
       if(request.readyState==4) alert(request.responseText);
     }
     request.send(  );
+  }
+</script>  -->
+
+
+
+<p><a href="#" onclick="prototypeAlert( );">Call with Prototype</a></p>
+
+<script type="text/javascript">
+  function prototypeAlert( ) {
+    new Ajax.Request('/chapter2/myresponse', { onSuccess: function(request) {
+     alert(request.responseText);
+    }})
   }
 </script>
