@@ -22,6 +22,11 @@ stripeResponseHandler = (status, response) ->
     token = response.id
     # Insert the token into the form so it gets submitted to the server
     $form.append $('<input type="hidden" name="stripeToken" />').val(token)
+    $form.append $('<input type="hidden" name="card_last4" />').val(response.card.last4)
+    $form.append $('<input type="hidden" name="card_exp_month" />').val(response.card.exp_month)
+    $form.append $('<input type="hidden" name="card_exp_yaer" />').val(response.card.exp_year)
+    $form.append $('<input type="hidden" name="card_brand" />').val(response.card.brand)
     # and submit
+    #console.log response
     $form.get(0).submit()
   return
