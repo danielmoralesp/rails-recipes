@@ -12,7 +12,13 @@ before_action :redirect_to_signup, only: [:new]
   end
 
   def create
+    customer = Stripe::Customer.create(
+      email: current_user.email,
+      source: params[:stripeToken],
+      plan: "monthly"
+    )
 
+    raise customer
   end
 
   def destroy
