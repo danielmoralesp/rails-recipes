@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Depot</title>
+    <title>Pragprog Books Online Store</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,8 +9,21 @@
   </head>
 
   <body>
-    <main class="<%= controller.controller_name %>">
-      <%= yield %>
-    </main>
+    <header class="main">
+      <h1><%= @page_title %></h1>
+    </header>
+    <section class="content">
+      <nav class="side_nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/question">Questions</a></li>
+          <li><a href="/news"></a>News</li>
+          <li><a href="/contact"></a>Contact</li>
+        </ul>
+      </nav>
+      <main class="<%= controller.controller_name %>">
+        <%= yield %>
+      </main>
+    </section>
   </body>
 </html>
